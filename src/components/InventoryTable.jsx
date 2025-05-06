@@ -24,6 +24,7 @@ const InventoryTable = () => {
       sellingPrice: 35,
     },
   ];
+  const [editingItemId, setEditingItemId] = useState(null);
 
   const [showForm, setShowForm] = useState(false);
   const [items, setItems] = useState(inventoryItems); // from static array
@@ -57,6 +58,14 @@ const InventoryTable = () => {
     });
     setItems(updatedItems);
   };  
+  const saveEditedItem = (updatedItem) => {
+    const updatedItems = items.map((item) =>
+      item.id === updatedItem.id ? updatedItem : item
+    );
+    setItems(updatedItems);
+    setEditingItemId(null);
+  };
+  
 
   return (
     <div className="inventory-table">
@@ -81,6 +90,62 @@ const InventoryTable = () => {
         <tbody>
         {items.map((item) => (
   <React.Fragment key={item.id}>
+  {editingItemId === item.id ? (
+    // Render editable row
+    <tr>
+      <td>
+        <input
+          value={item.name}
+          onChange={(e) => updateItemField(item.id, "name", e.target.value)}
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          value={item.cost}
+          onChange={(e) => updateItemField(item.id, "cost", e.target.value)}
+        />
+      </td>
+      <td>
+        <input
+          value={item.platform}
+          onChange={(e) => updateItemField(item.id, "platform", e.target.value)}
+        />
+      </td>
+      <td>
+        <input
+          value={item.location}
+          onChange={(e) => updateItemField(item.id, "location", e.target.value)}
+        />
+      </td>
+      <td>
+        <select
+          value={item.status}
+          onChange={(e) =>
+            updateItemField(item.id, "status", e.target.value)
+          }
+        >
+          <option value="Available">Available</option>
+          <option value="Sold">Sold</option>
+        </select>
+      </td>
+      <td>
+        <input
+          type="number"
+          value={item.sellingPrice || ""}
+          onChange={(e) =>
+            updateItemField(item.id, "sellingPrice", e.target.value)
+          }
+        />
+      </td>
+      <td>{calculateProfit(item)}</td>
+      <td>
+        <button onClick={() => saveEditedItem(item)}>Save</button>
+        <button onClick={() => setEditingItemId(null)}>Cancel</button>
+      </td>
+    </tr>
+  ) : (
+    // Render regular row
     <tr>
       <td>{item.name}</td>
       <td>${item.cost}</td>
@@ -89,7 +154,9 @@ const InventoryTable = () => {
       <td>
         <select
           value={item.status}
-          onChange={(e) => handleStatusChange(item.id, e.target.value)}
+          onChange={(e) =>
+            updateItemField(item.id, "status", e.target.value)
+          }
         >
           <option value="Available">Available</option>
           <option value="Sold">Sold</option>
@@ -97,36 +164,13 @@ const InventoryTable = () => {
       </td>
       <td>{item.status === "Sold" ? `$${item.sellingPrice}` : "-"}</td>
       <td>{calculateProfit(item)}</td>
+      <td>
+        <button onClick={() => setEditingItemId(item.id)}>Edit</button>
+      </td>
     </tr>
+  )}
+</React.Fragment>
 
-    {item.status === "Sold" && !item.sellingPrice && (
-      <tr className="sold-details-row">
-        <td colSpan="7">
-          <input
-            type="number"
-            placeholder="Selling Price"
-            onChange={(e) =>
-              updateItemField(item.id, "sellingPrice", e.target.value)
-            }
-          />
-          <input
-            type="date"
-            placeholder="Sale Date"
-            onChange={(e) =>
-              updateItemField(item.id, "saleDate", e.target.value)
-            }
-          />
-          <input
-            type="number"
-            placeholder="Platform Fee or Shipping Cost"
-            onChange={(e) =>
-              updateItemField(item.id, "platformFees", e.target.value)
-            }
-          />
-        </td>
-      </tr>
-    )}
-  </React.Fragment>
 ))}
 
         </tbody>

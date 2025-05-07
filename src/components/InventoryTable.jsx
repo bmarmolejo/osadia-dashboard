@@ -140,8 +140,8 @@ const InventoryTable = () => {
       </td>
       <td>{calculateProfit(item)}</td>
       <td>
-        <button onClick={() => saveEditedItem(item)}>Save</button>
-        <button onClick={() => setEditingItemId(null)}>Cancel</button>
+        <button className="save" onClick={() => saveEditedItem(item)}>Save</button>
+        <button className="cancel" onClick={() => setEditingItemId(null)}>Cancel</button>
       </td>
     </tr>
   ) : (
@@ -165,7 +165,7 @@ const InventoryTable = () => {
       <td>{item.status === "Sold" ? `$${item.sellingPrice}` : "-"}</td>
       <td>{calculateProfit(item)}</td>
       <td>
-        <button onClick={() => setEditingItemId(item.id)}>Edit</button>
+        <button className="edit" onClick={() => setEditingItemId(item.id)}>Edit</button>
       </td>
     </tr>
   )}

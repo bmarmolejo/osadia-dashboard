@@ -1,18 +1,14 @@
-import { useState } from 'react'
-import InventoryTable from './components/InventoryTable'
-import './App.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Inventory from './pages/Inventory';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <h1>Osadia eCommerce Dashboard</h1>
-        <InventoryTable />
-      </div>
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Inventory />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

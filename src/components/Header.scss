@@ -1,0 +1,42 @@
+@import "../styles/partials/colours";
+@import "../styles/partials/media-queries";
+@import "../styles/partials/fonts";
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: $light-grey;
+    width: 100%;
+    height: auto;
+    padding: 1rem 2rem;
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 400;
+    font-size: 0.813rem;
+  
+    // Remove fixed height from mobile/tablet/desktop
+    @include tablet {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  
+    @include desktop {
+      padding: 0.75rem 8rem 0;
+    }
+  
+    &__logo {
+      display: flex;
+      align-items: center;
+      padding-top: 0;
+  
+      img {
+        height: 200px;
+        width: auto;
+      }
+  
+      &-link {
+        display: inline-block;
+      }
+    }
+  }
+  

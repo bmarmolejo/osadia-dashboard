@@ -1,3 +1,8 @@
+@import "../styles/partials/colours";
+@import "../styles/partials/media-queries";
+@import "../styles/partials/fonts";
+
+
 .inventory-table {
     padding: 2rem;
   
@@ -12,7 +17,7 @@
       }
   
       .new-item-btn {
-        background-color: #6c4fc0;
+        background-color: $blue;
         color: white;
         padding: 0.5rem 1rem;
         border: none;
@@ -32,7 +37,7 @@
       }
   
       th {
-        background-color: #f7f7f7;
+        background-color: $light-teal;
       }
     }
   }
@@ -74,7 +79,7 @@ tr.editing {
   }
   
   .inventory-table .edit {
-    background-color: #1976d2;
+    background-color: $blue;
     color: white;
   }
     

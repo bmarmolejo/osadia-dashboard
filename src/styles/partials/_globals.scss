@@ -1,0 +1,107 @@
+@use "./colours" as *;
+@use "./media-queries" as *;
+
+/* Default browser styling reset */
+$fs-mobile-p1: 15px;
+$fs-mobile-p2: 13px;
+$fs-mobile-p3: 11px;
+
+$lh-mobile-p1: 26px;
+$lh-mobile-p2: 20px;
+$lh-mobile-p3: 16px;
+
+$fs-desktop-p1: 16px;
+$fs-desktop-p2: 14px;
+$fs-desktop-p3: 12px;
+
+$lh-desktop-p1: 28px;
+$lh-desktop-p2: 22px;
+$lh-desktop-p3: 18px;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  list-style: none;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+  object-fit: cover;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* Common styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Titillium Web;
+  background-color: rgba(247, 248, 249, 1);
+  color: $instock-black;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+h1 {
+  font-size: 28px;
+  line-height: 36px;
+
+  @include tablet {
+    font-size: 32px;
+    line-height: 40px;
+  }
+}
+
+h2 {
+  font-size: 20px;
+  line-height: 28px;
+
+  @include tablet {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+
+h3,
+label,
+button {
+  font-size: 13px;
+  line-height: 20px;
+
+  @include tablet {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+h4 {
+  font-size: 11px;
+  line-height: 16px;
+
+  @include tablet {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}

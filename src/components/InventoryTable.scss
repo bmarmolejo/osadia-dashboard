@@ -5,6 +5,7 @@
 
 .inventory-table {
   padding: 2rem;
+  // width: 100%;
 
   .inventory-header {
     display: flex;
@@ -20,12 +21,14 @@
       display: flex;
       gap: 1rem;
       align-items: center;
+      // flex-wrap: nowrap;
     }
 
     .search-input {
       padding: 0.5rem;
       border: 1px solid #ccc;
-      border-radius: 6px;
+      border-radius: 1.25rem;
+      width: 200px;
     }
 
     .new-item-btn {
@@ -33,7 +36,7 @@
       color: white;
       padding: 0.5rem 1rem;
       border: none;
-      border-radius: 6px;
+      border-radius: 1.25rem;
       cursor: pointer;
     }
   }
@@ -84,15 +87,19 @@ tr.editing {
 }
 
 .inventory-table .save {
-  background-color: #4caf50;
+  background-color: $dark-teal;
   color: white;
 }
 
 .inventory-table .cancel {
-  background-color: #ccc;
+  background-color: $light-teal;
 }
 
 .inventory-table .edit {
   background-color: $blue;
   color: white;
+}
+.button-group {
+  display: flex;
+  gap: 0.5rem;
 }

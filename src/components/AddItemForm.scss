@@ -1,3 +1,6 @@
+@import "../styles/partials/colours";
+@import "../styles/partials/media-queries";
+@import "../styles/partials/fonts";
 .modal {
     position: fixed;
     top: 0;
@@ -31,11 +34,14 @@
   
         button {
           margin-top: 0.5rem;
+          background-color: $blue;
+          color: white;
         }
   
         .cancel {
-          background: #ccc;
+          background: $light-teal;
           margin-top: 0.5rem;
+          color: $osadia-black;
         }
       }
     }

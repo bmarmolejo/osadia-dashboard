@@ -51,7 +51,7 @@
 
     &__link {
         text-decoration: none;
-        color: $cloud;
+        color: $white;
         margin-right: 1rem;
         width: 100%;
         text-align: center;
@@ -59,7 +59,7 @@
 
         &.active {
             color: $white;
-            background-color: $instock-black;
+            background-color: $blue;
             border-radius: 1.25rem;
             padding: 0.5rem 1rem;
             width: 100%;

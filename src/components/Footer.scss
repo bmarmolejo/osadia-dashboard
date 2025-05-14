@@ -1,0 +1,19 @@
+@import "../styles/partials/colours";
+@import "../styles/partials/media-queries";
+@import "../styles/partials/fonts";
+
+.footer {
+  color: $slate;
+  background-color: $light-grey;
+  padding-bottom: 4rem;
+  font-family: "Titillium Web", sans-serif;
+   height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  .footer__text {
+    text-align: center;
+  }
+}

@@ -19,8 +19,8 @@ function Header() {
           Locations
         </NavLink>
         <NavLink to="/sold" className="navigation__link">
-  Sold
-</NavLink>
+          Sold
+        </NavLink>
       </nav>
     </header>
   );

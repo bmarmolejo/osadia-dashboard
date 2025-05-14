@@ -4,82 +4,95 @@
 
 
 .inventory-table {
-    padding: 2rem;
-  
-    .inventory-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-  
-      h2 {
-        margin: 0;
-      }
-  
-      .new-item-btn {
-        background-color: $blue;
-        color: white;
-        padding: 0.5rem 1rem;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-      }
+  padding: 2rem;
+
+  .inventory-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    h2 {
+      margin: 0;
     }
-  
-    table {
-      width: 100%;
-      border-collapse: collapse;
-  
-      th, td {
-        text-align: left;
-        padding: 0.75rem;
-        border-bottom: 1px solid #e0e0e0;
-      }
-  
-      th {
-        background-color: $light-teal;
-      }
+
+    &__actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .search-input {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .new-item-btn {
+      background-color: $blue;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
     }
   }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th,
+    td {
+      text-align: left;
+      padding: 0.75rem;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    th {
+      background-color: $light-teal;
+    }
+  }
+}
+
 // Highlight editable row
 tr.editing {
-    background-color: #f0f4ff;
-  }
-  
-  // Make inputs uniform
-  .inventory-table input,
-  .inventory-table select {
-    padding: 6px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  // Align action buttons
-  .inventory-table button {
-    padding: 6px 10px;
-    margin-right: 5px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .inventory-table button:hover {
-    opacity: 0.85;
-  }
-  
-  .inventory-table .save {
-    background-color: #4caf50;
-    color: white;
-  }
-  
-  .inventory-table .cancel {
-    background-color: #ccc;
-  }
-  
-  .inventory-table .edit {
-    background-color: $blue;
-    color: white;
-  }
-    
+  background-color: #f0f4ff;
+}
+
+// Make inputs uniform
+.inventory-table input,
+.inventory-table select {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+// Align action buttons
+.inventory-table button {
+  padding: 6px 10px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.inventory-table button:hover {
+  opacity: 0.85;
+}
+
+.inventory-table .save {
+  background-color: #4caf50;
+  color: white;
+}
+
+.inventory-table .cancel {
+  background-color: #ccc;
+}
+
+.inventory-table .edit {
+  background-color: $blue;
+  color: white;
+}

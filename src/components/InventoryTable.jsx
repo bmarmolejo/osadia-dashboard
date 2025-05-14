@@ -65,16 +65,27 @@ const InventoryTable = () => {
     setItems(updatedItems);
     setEditingItemId(null);
   };
-  
+
+  const [searchQuery, setSearchQuery] = useState("");
+
 
   return (
     <div className="inventory-table">
       <div className="inventory-header">
-        <h2>Inventory</h2>
-        <button className="new-item-btn" onClick={() => setShowForm(true)}>
-          + New Item
-        </button>
-      </div>
+  <h2>Inventory</h2>
+  <div className="inventory-header__actions">
+    <input
+      type="text"
+      placeholder="Search by name..."
+      className="search-input"
+      // onChange={(e) => setSearchQuery(e.target.value)} // optional logic
+    />
+    <button className="new-item-btn" onClick={() => setShowForm(true)}>
+      + New Item
+    </button>
+  </div>
+</div>
+
       <table>
         <thead>
           <tr>

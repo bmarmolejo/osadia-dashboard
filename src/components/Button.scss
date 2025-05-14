@@ -1,0 +1,46 @@
+@use "../styles/partials/colours" as *;
+@use "../styles/partials/media-queries" as *;
+
+.btn {
+  font-weight: 600;
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  padding: 0.5rem 1rem;
+  border-radius: 1.25rem;
+  border: none;
+  cursor: pointer;
+
+  &--save {
+    background-color: $blue;
+    color: $white;
+    flex: 1;
+
+    @include tablet {
+      flex: unset;
+    }
+
+    &:hover {
+      background-color: $graphite;
+      color: $white;
+      transition: 0.2s ease;
+    }
+  }
+
+  &--cancel {
+    background-color: $white;
+
+    color: $slate;
+    border: 1px solid $cloud;
+    flex: 1;
+
+    @include tablet {
+      flex: unset;
+      width: fit-content;
+    }
+  }
+
+  @include tablet {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+  }
+}

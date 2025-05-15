@@ -9,6 +9,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 import Inventory from "./pages/Inventory";
+import Locations from "./pages/Locations";
+import Sold from "./pages/Sold";
 
 function App() {
   return (
@@ -18,6 +20,9 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Inventory />} />
+          {/* <Route path="/inventory" element={<Inventory />} /> */}
+          <Route path="/locations" element={<Locations />} />
+          <Route path="/sold" element={<Sold />} />
         </Routes>
 
         <Footer />

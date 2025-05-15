@@ -1,11 +1,11 @@
-import SoldTable from "../components/SoldTable";
+import LocationsTable from "../components/LocationsTable";
 import "./Inventory.scss"; 
 
 const Inventory = () => {
   return (
     <main className="inventory-page">
       <div className="inventory-container">
-        <SoldTable />
+        <LocationsTable />
       </div>
     </main>
   );

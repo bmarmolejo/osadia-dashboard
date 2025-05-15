@@ -1,6 +1,6 @@
-@import "../styles/partials/colours";
-@import "../styles/partials/media-queries";
-@import "../styles/partials/fonts";
+@use "../styles/partials/colours" as *;
+@use "../styles/partials/media-queries" as *;
+@use "../styles/partials/fonts" as *;
 
 
 .inventory-table {
@@ -135,4 +135,17 @@ tr.editing {
 .button-group {
   display: flex;
   gap: 0.5rem;
+}
+
+.back-button {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: $blue;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+
+  &:hover {
+    color: darken($blue, 10%);
+  }
 }

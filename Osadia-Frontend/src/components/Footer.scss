@@ -1,6 +1,6 @@
-@import "../styles/partials/colours";
-@import "../styles/partials/media-queries";
-@import "../styles/partials/fonts";
+@use "../styles/partials/colours" as *;
+@use "../styles/partials/media-queries" as *;
+@use "../styles/partials/fonts" as *;
 
 .footer {
   color: $slate;

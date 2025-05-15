@@ -5,6 +5,7 @@ import "./InventoryTable.scss";
 import TrashIcon from "../assets/trash.svg";
 import axios from "axios";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const InventoryTable = () => {
   const [items, setItems] = useState([]);
@@ -12,18 +13,19 @@ const InventoryTable = () => {
   const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/api/inventory")
+    axios
+      .get("http://localhost:3000/api/inventory")
       .then((res) => {
         // Mapping each item to match front end naming
-        const mappedItems = res.data.map(item => ({
+        const mappedItems = res.data.map((item) => ({
           id: item.id,
-          name: item.item_name,               // "Item"
-          cost: item.cost,                    // "COGS"
-          platform: item.listed_channels,     // "Platform"
-          location: item.bin_number,          // "Location"
+          name: item.item_name, // "Item"
+          cost: item.cost, // "COGS"
+          platform: item.listed_channels, // "Platform"
+          location: item.bin_number, // "Location"
           status: item.is_sold ? "Sold" : "Available", // "Status"
-          sellingPrice: item.selling_price,   // "Selling Price"
-          profit: item.profit                 // "Profit"
+          sellingPrice: item.selling_price, // "Selling Price"
+          profit: item.profit, // "Profit"
         }));
         setItems(mappedItems);
       })
@@ -103,6 +105,10 @@ const InventoryTable = () => {
             <th>Status</th>
             <th>Selling Price</th>
             <th>Profit</th>
+            <th>Fees</th>
+            <th>Shipping</th>
+            <th>Min Price</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -129,21 +135,29 @@ const InventoryTable = () => {
                     />
                   </td>
                   <td>
-                    <input
+                    <select
                       value={item.platform}
                       onChange={(e) =>
                         updateItemField(item.id, "platform", e.target.value)
                       }
-                    />
+                    >
+                      <option value="">Select</option>
+                      <option value="eBay US">eBay US</option>
+                      <option value="eBay CA">eBay CA</option>
+                      <option value="Poshmark US">Poshmark US</option>
+                      <option value="Poshmark CA">Poshmark CA</option>
+                      <option value="Marketplace">Marketplace</option>
+                      <option value="Etsy">Etsy</option>
+                      <option value="Shopify">Shopify</option>
+                      <option value="Other">Other</option>
+                    </select>
                   </td>
                   <td>
-                    <input
-                      value={item.location}
-                      onChange={(e) =>
-                        updateItemField(item.id, "location", e.target.value)
-                      }
-                    />
+                    <Link to={`/location/${item.location}`}>
+                      {item.location}
+                    </Link>
                   </td>
+
                   <td>
                     <select
                       value={item.status}
@@ -187,8 +201,32 @@ const InventoryTable = () => {
                 <tr>
                   <td>{item.name}</td>
                   <td>${item.cost}</td>
-                  <td>{item.platform}</td>
-                  <td>{item.location}</td>
+                  <td>
+                    <select
+                      value={item.platform}
+                      onChange={(e) =>
+                        updateItemField(item.id, "platform", e.target.value)
+                      }
+                    >
+                      <option value="">Select</option>
+                      <option value="eBay US">eBay US</option>
+                      <option value="eBay CA">eBay CA</option>
+                      <option value="Poshmark US">Poshmark US</option>
+                      <option value="Poshmark CA">Poshmark CA</option>
+                      <option value="Marketplace">Marketplace</option>
+                      <option value="Etsy">Etsy</option>
+                      <option value="Shopify">Shopify</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </td>
+                  <td>${item.fees}</td>
+                  <td>${item.shipping_cost}</td>
+                  <td>${item.minimum_selling_price}</td>
+                  <td>
+                    <Link to={`/location/${item.location}`}>
+                      {item.location}
+                    </Link>
+                  </td>{" "}
                   <td>
                     <select
                       value={item.status}

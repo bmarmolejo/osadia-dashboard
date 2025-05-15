@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 import Inventory from "./pages/Inventory";
 import Locations from "./pages/Locations";
 import Sold from "./pages/Sold";
+import LocationDetail from "./pages/LocationDetail";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Inventory />} />
+          <Route path="/location/:binNumber" element={<LocationDetail />} />
           <Route path="/inventory" element={<Inventory />} />
           <Route path="/locations" element={<Locations />} />
           <Route path="/sold" element={<Sold />} />
